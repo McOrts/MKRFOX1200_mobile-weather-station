@@ -1,3 +1,7 @@
+/*
+  SigFox Mobile weather station
+  This example code is in the public domain.
+*/
 // Descomentar para hacer debug
 #define DEBUG_SIGFOX 1
  
@@ -30,13 +34,17 @@ int uvActual = 0; // Lectura por la que vamos
 float uvTotal = 0; // Total de las que llevamos
 float uvMedia = 0; // Media de las medidas
 bool uvPrimera = false; // Para saber que ya hemos calculado por lo menos una
- 
+
+// Sensor de interno de temperatura
+float CPUtemp = 0; // Temperatura en el momemnto
+
 // Estructura para almacenar datos
 typedef struct __attribute__ ((packed)) sigfox_message {
   uint8_t status;
   int16_t bmpTemperature;
   uint16_t bmpPressure;
   float sparkUv;
+  int16_t sigfoxTemperature;
   uint8_t lastMessageStatus;
 } SigfoxMessage;
  
@@ -132,8 +140,6 @@ void loop() {
     Serial.println(uvMedia);
     Serial.print("Milisegundos: ");
     Serial.println(millis());
-    Serial.print("Module temperature: ");
-    Serial.println(SigFox.internalTemperature());
 #endif
  
     // Almacenamos la información para enviar
@@ -152,7 +158,15 @@ void loop() {
     SigFox.begin();
     // Wait at least 30ms after first configuration (100ms before)
     delay(100);
- 
+
+    // We can only read the module temperature before SigFox.end()
+    CPUtemp = SigFox.internalTemperature();
+    msg.sigfoxTemperature = CPUtemp;
+#ifdef DEBUG_SIGFOX
+    Serial.print("CPU temperature: ");
+    Serial.println(CPUtemp, 2);
+#endif
+
     // Clears all pending interrupts
     SigFox.status();
     delay(1);

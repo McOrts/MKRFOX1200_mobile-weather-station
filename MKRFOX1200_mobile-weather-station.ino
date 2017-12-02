@@ -40,11 +40,11 @@ float CPUtemp = 0; // Temperatura en el momemnto
 
 // Estructura para almacenar datos
 typedef struct __attribute__ ((packed)) sigfox_message {
-  uint8_t status;
+  int16_t sigfoxTemperature;
   int16_t bmpTemperature;
   uint16_t bmpPressure;
   float sparkUv;
-  int16_t sigfoxTemperature;
+  uint8_t status;
   uint8_t lastMessageStatus;
 } SigfoxMessage;
  
@@ -129,7 +129,25 @@ void loop() {
   // Comprobamos que tengamos todas las medidas y que haya pasado el tiempo estimado
   if (uvPrimera && tempPrimera && empiezaTransmitir)
   {
+ 
+    // Start the module
+    SigFox.begin();
+    // Wait at least 30ms after first configuration (100ms before)
+    delay(100);
+
+    // We can only read the module temperature before SigFox.end()
+    CPUtemp = SigFox.internalTemperature();
+
+    // Almacenamos la información para enviar
+    msg.sigfoxTemperature = CPUtemp;
+    msg.bmpTemperature = tempMedia;
+    msg.bmpPressure = presisMedia;
+    msg.sparkUv = uvMedia;
+
 #ifdef DEBUG_SIGFOX
+    Serial.begin(9600);
+    Serial.print("CPU temperature: ");
+    Serial.println(CPUtemp, 2);
     Serial.print("Temperatura: ");
     Serial.print(tempMedia, 2);
     Serial.print(" *C , ");
@@ -141,12 +159,6 @@ void loop() {
     Serial.print("Milisegundos: ");
     Serial.println(millis());
 #endif
- 
-    // Almacenamos la información para enviar
-    msg.bmpTemperature = tempMedia;
-    msg.bmpPressure = presisMedia;
-    msg.sparkUv = uvMedia;
- 
     // Reseteamos los contadores
     tempPrimera = false;
     uvPrimera = false;
@@ -154,18 +166,6 @@ void loop() {
     tempActual = 0;
     uvActual = 0;
  
-    // Start the module
-    SigFox.begin();
-    // Wait at least 30ms after first configuration (100ms before)
-    delay(100);
-
-    // We can only read the module temperature before SigFox.end()
-    CPUtemp = SigFox.internalTemperature();
-    msg.sigfoxTemperature = CPUtemp;
-#ifdef DEBUG_SIGFOX
-    Serial.print("CPU temperature: ");
-    Serial.println(CPUtemp, 2);
-#endif
 
     // Clears all pending interrupts
     SigFox.status();
@@ -181,7 +181,7 @@ void loop() {
  
     SigFox.end();
  
-    //A dormir 10 minuto
+    //A dormir 10 minutos
     LowPower.sleep(10 * 60 * 1000);
  
     // Empezamos a contar el tiempo

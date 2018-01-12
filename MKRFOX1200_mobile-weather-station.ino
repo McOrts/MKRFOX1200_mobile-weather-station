@@ -5,7 +5,7 @@
 // Descomentar para hacer debug
 #define DEBUG_SIGFOX 1
 
-// Librerías
+// libraries
 #include <SFE_BMP180.h>
 #include <Wire.h>
 #include <ArduinoLowPower.h>

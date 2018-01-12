@@ -1,5 +1,5 @@
 Custom payload config:
-cputemp::int:16:little-endian temp::int:16:little-endian press::uint:16:little-endian uv::float:32:little-endian status::uint:8 lastMsg::uint:8
+battery::float:32:little-endian temp::int:16:little-endian press::uint:16:little-endian uv::float:32:little-endian
 
 Url pattern:
-https://api.thingspeak.com/update?api_key=RJERPCCHBS8T3141&field1={customData#cputemp}&field2={customData#temp}&field3={customData#press}&field4={customData#uv}&field5={customData#status}&field6={customData#lastMsg}
+https://api.thingspeak.com/update?api_key=RJERPCCHBS8T3141&field1={customData#battery}&field2={customData#temp}&field3={customData#press}&field4={customData#uv}

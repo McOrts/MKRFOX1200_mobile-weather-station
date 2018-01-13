@@ -3,3 +3,6 @@ The arduino MKRFOX1200 with connection to Sigfox has taken the democratization o
 This project will put on your cell phone the basic weather information collected in real time by a mobile device that you can "leave" in a large part of the world.
 
 ![alt text](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/MKRFOX1200_mobile-weather-station.jpg?raw=true)
+
+![alt text](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/sigfox_Global_Coverage.png?raw=true)
+https://www.sigfox.com/en/coverage

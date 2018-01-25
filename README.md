@@ -1,7 +1,7 @@
 # Mobile weather station based on Arduino MKRFOX1200
 The arduino MKRFOX1200 with connection to Sigfox has taken the democratization of the use of microcontrollers to the space of the IOT and the cloud.
 
-![alt text](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/MKRFOX1200_mobile-weather-station.jpg?raw=true)
+![MKRFOX1200_mobile-weather-station](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/MKRFOX1200_mobile-weather-station.jpg?raw=true)
 
 This project will put on your cell phone the basic weather information collected in real time by a mobile device that you can "abandon" in a large part of the world.
 
@@ -17,6 +17,8 @@ All IOT architecture is built with 5 components. I will list these components ex
 The world can be watched with a large array of sensors to choose from. Today they are invisible and energy efficient, whilst maintaining a high measurement precision. I used these:
 * [ML8511](https://learn.sparkfun.com/tutorials/ml8511-uv-sensor-hookup-guide) Ultra violet sensor
 * [BMP180](https://www.adafruit.com/product/1603) Temperature and pressure sensors
+![ML8511](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/ML8511_UV_Sensor.jpg?raw=true)
+![BMP180](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/BMP180_TemPre_Sensor.jpg?raw=true)
 
 ### Connectivity
 Once we have the sensons, we need to connect it reliably to the Internet. But now, wireless connectivity is central to the success of the IoT

@@ -40,9 +40,9 @@ Additionally, it offers a localization service  based on a proprietary probabili
 
 This is the global coverage of the sigfox network:
 
-![https://www.sigfox.com/en/coverage](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/sigfox_Global_Coverage.png?raw=true)
+![https://www.sigfox.com/en/coverage](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/sigfox_Global_Coverage.png)
 
-!Example of my device location](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/MKRFOX1200_mobile-weather-station_report-data/MKRFOX1200_location_Poland_Krakow_201801.png)
+![Example of my device location](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/MKRFOX1200_mobile-weather-station_report-data/MKRFOX1200_location_Poland_Krakow_201801.png)
 
 ### Platform
 Third, the collected data needs to be stored and processed somewhere. Known as IoT platforms, these are typically cloud-based infrastructures which:
@@ -118,3 +118,6 @@ An important component is how the data is presented to the final users. There ar
 I have chosen an application that offers a widget in iOS:
 
 ![Widget app with UV measure](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/cell_widget.png?raw=true)
+
+## Schematic and Connections
+I have assembled the prototype over a MKR Proto Large Shield

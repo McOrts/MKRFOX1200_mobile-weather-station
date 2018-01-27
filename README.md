@@ -45,6 +45,8 @@ This is the global coverage of the sigfox network:
 
 ![https://www.sigfox.com/en/coverage](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/sigfox_Global_Coverage.png)
 
+On my Christmas holidays I had the opportunity to try out the device in the different cities that I have visited: Madrid, Salamanca, Warsaw and Krakow. Also It was a few days above the level of 1000m in the Sierra de Tramuntana (Mallorca). All the information collected can be found at: (https://github.com/McOrts/MKRFOX1200_mobile-weather-station/tree/master/MKRFOX1200_mobile-weather-station_report-data)
+
 ![Example of my device location](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/MKRFOX1200_mobile-weather-station_report-data/MKRFOX1200_location_Poland_Krakow_201801.png)
 
 ### Platform
@@ -108,7 +110,7 @@ display(dewPointF, 'Dew point')
 thingSpeakWrite(writeChannelID, dewPointF, 'Writekey', writeAPIKey);
 
 ```
-In addition, you can act on the data by triggering events such as twitter messages.
+In addition, ThingSpeak allows you to  act on the data by triggering events such as twitter messages.
 
 ### User Interface
 An important component is how the data is presented to the final users. There are appealing user interfaces, both web based as well as smart phone or tablet based. 

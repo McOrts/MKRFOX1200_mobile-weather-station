@@ -1,4 +1,4 @@
-# Mobile weather station based on Arduino MKRFOX1200
+# Mobile IOT weather station based on Arduino MKRFOX1200
 The arduino MKRFOX1200 with connection to Sigfox has taken the democratization of the use of microcontrollers to the space of the IOT and the cloud.
 
 Based on this microprocessor **I build a mobile weather station for UV, pressure and temperature measures in anywhere**. This compact device can collect environment information each 15 minutes autonomously for three months with three AA batteries and almost anywhere in the world. 

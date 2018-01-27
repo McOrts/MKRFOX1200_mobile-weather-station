@@ -1,7 +1,10 @@
 # Mobile weather station based on Arduino MKRFOX1200
 The arduino MKRFOX1200 with connection to Sigfox has taken the democratization of the use of microcontrollers to the space of the IOT and the cloud.
 
+Based on this microprocessor **I build a mobile weather station for UV, pressure and temperature measures in anywhere**. This compact device can collect environment information each 15 minutes autonomously for three months with three AA batteries and almost anywhere in the world. 
+
 ![MKRFOX1200_mobile-weather-station](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/MKRFOX1200_mobile-weather-station.jpg?raw=true)
+The device is finally **placed on the beach of Palma de Mallorca in Spain**. So you can see right now the index of ultraviolet radiation, temperature and atmospheric pressure in the following link: https://thingspeak.com/channels/365024
 
 This project will put on your cell phone the basic weather information collected in real time by a mobile device that you can "abandon" in a large part of the world.
 
@@ -9,7 +12,7 @@ This project will put on your cell phone the basic weather information collected
 
 The Internet of Things is a network of connected devices which communicate over the Internet, and they do so autonomously, machine to machine, without the need for human intervention.
 
-The first reference to the IoT was in 1982, when researchers at Carnegie Mellon University developed the world’s first IoT-enabled Coke Machine. Mark Weiser developed the concept further in the early 90s; and Kevin Ashton coined the term ‘Internet of Things’ around 1999.
+> The first reference to the IoT was in 1982, when researchers at Carnegie Mellon University developed the world’s first IoT-enabled Coke Machine. Mark Weiser developed the concept further in the early 90s; and Kevin Ashton coined the term ‘Internet of Things’ around 1999.
 
 All IOT architecture is built with 5 components. I will list these components explaining the implementation I have made to build this device.
 
@@ -77,7 +80,7 @@ readAPIKey = 'UTVU9A464TKW6UQ5';
 % TODO - Replace the [] with channel ID to write data to:
 writeChannelID = 365024;
 % TODO - Enter the Write API Key between the '' below:
-writeAPIKey = 'RJERPCCHBS8T3141';
+writeAPIKey = '****************';
 
 tempF = thingSpeakRead(readChannelID, 'Fields', TemperatureFieldID, 'ReadKey', readAPIKey);
 
@@ -102,11 +105,6 @@ display(dewPointF, 'Dew point')
 % Write the dew point value to another channel specified by the
 % 'writeChannelID' variable
 
-display(['Note: To successfully write data to another channel, ',...
-    'assign the write channel ID and API Key to ''writeChannelID'' and ',...
-    '''writeAPIKey'' variables above. Also uncomment the line of code ',...
-    'containing ''thingSpeakWrite'' (remove ''%'' sign at the beginning of the line.)'])
-
 thingSpeakWrite(writeChannelID, dewPointF, 'Writekey', writeAPIKey);
 
 ```
@@ -120,4 +118,11 @@ I have chosen an application that offers a widget in iOS:
 ![Widget app with UV measure](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/cell_widget.png?raw=true)
 
 ## Schematic and Connections
-I have assembled the prototype over a MKR Proto Large Shield
+I assembled all the components for the prototype over a [MKR Proto Large Shield](https://store.arduino.cc/mkr-proto-large-shield). This is the breadboard:
+
+![Breadboard](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/MKRFOX1200_mobile-weather-station_Breadboard.png)
+
+## Architecture
+This device collects environmental data and send the information as a discrete radio packets each 15 minutes. The radio network ingests the data in internet network through rest-api calls. So finally, websites and mobile applications can process and display de information. 
+
+![Architecture](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/MKRFOX1200_mobile-weather-station_Architecture.png)

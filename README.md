@@ -56,14 +56,14 @@ Third, the collected data needs to be stored and processed somewhere. Known as I
 2. store the data; and
 3. process the data.
 
-For this project I chose [ThingSpeak](https://pages.github.com/). platform. A free account allows you to store up to 8 fields as long as the limit of 3,000 bytes is not exceeded with a maximum of 3 million messages per year.
+For this project I chose [ThingSpeak](https://thingspeak.com). platform. A free account allows you to store up to 8 fields as long as the limit of 3,000 bytes is not exceeded with a maximum of 3 million messages per year.
 
 ### Analytics
 Some data analytics needs to be applied to the data as the value is not in the raw bits and bytes, but rather in the insights gathered from them.
 
 ![Mallorca data](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/MKRFOX1200_mobile-weather-station_report-data/MKRFOX1200_graph_Spain_Mallorca_Palma_201711.png)
 
-[ThingSpeak](https://pages.github.com/) can not only show graphs of your data. Also can do an analysis of your data using MATLAB programming. For example, calculate the dew point based on temperature and humidity. 
+[ThingSpeak Visualizations](https://thingspeak.com/channels/365024) can not only show graphs of your data. Also can do an analysis of your data using MATLAB programming. For example, calculate the dew point based on temperature and humidity. 
 
 ```
 % Humidity and temperature are read from a ThingSpeak channel to calculate

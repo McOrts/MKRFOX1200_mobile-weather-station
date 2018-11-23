@@ -128,3 +128,7 @@ I assembled all the components for the prototype over a [MKR Proto Large Shield]
 This device collects environmental data and send the information as a discrete radio packets each 15 minutes. The radio network ingests the data in internet network through rest-api calls. So finally, websites and mobile applications can process and display de information. 
 
 ![Architecture](https://github.com/McOrts/MKRFOX1200_mobile-weather-station/blob/master/MKRFOX1200_mobile-weather-station_Architecture.png)
+
+## Greetingg
+To Luis del Valle of https://programarfacil.com for the blog entry:
+(https://programarfacil.com/podcast/sigfox-arduino-mkrfox1200-radiacion-uv/)
